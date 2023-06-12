@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/06/2023 00:16:21 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="teste.Curso" table="curso" catalog="cusos_online_db" optimistic-lock="version">
+        <id name="codigo" type="int">
+            <column name="codigo" />
+            <generator class="assigned" />
+        </id>
+        <property name="nome" type="string">
+            <column name="nome" length="250" not-null="true" />
+        </property>
+        <property name="area" type="string">
+            <column name="area" length="250" not-null="true" />
+        </property>
+        <property name="duracao" type="timestamp">
+            <column name="duracao" length="19" not-null="true" />
+        </property>
+        <property name="cadeira" type="string">
+            <column name="cadeira" length="100" not-null="true" />
+        </property>
+        <property name="videoaula" type="binary">
+            <column name="videoaula" not-null="true" />
+        </property>
+        <set name="estudantes" table="estudante" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="curso_id" not-null="true" />
+            </key>
+            <one-to-many class="teste.Estudante" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -3,6 +3,6 @@
 
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="cusos_online_db"/>
-  <table-filter match-name="estudante"/>
   <table-filter match-name="curso"/>
+  <table-filter match-name="estudante"/>
 </hibernate-reverse-engineering>
